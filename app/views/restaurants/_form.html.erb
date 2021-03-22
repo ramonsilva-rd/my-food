@@ -1,0 +1,52 @@
+<%= form_with(model: restaurant) do |form| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> impede que os dados sejam salvos:</h2>
+
+      <ul>
+        <% restaurant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :name %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :address %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :lat, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :lat %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :lng, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :lng %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id, class: 'label' %>
+    <div class="control">
+      <%= form.select :category_id, @categories.collect { |category| [category.name, category.id] }, class: 'select' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Salvar', class: 'button is-primary' %>
+  </div>
+<% end %>

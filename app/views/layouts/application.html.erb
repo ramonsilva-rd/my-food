@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyFood</title>
+    <title>My Food - Peça Comida Online</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/minty/bulmaswatch.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= image_tag "logo.png", width: 80 %>
+      </div>
+       <div class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to 'Categorias', categories_path , class: 'navbar-item' %>
+          <%= link_to 'Restaurantes', restaurants_path , class: 'navbar-item' %>
+          <%= link_to 'Pratos', meals_path , class: 'navbar-item' %>
+          <a class="navbar-item">
+            Usuários
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Cadastrar</strong>
+              </a>
+              <a class="button is-light">
+                Entrar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation Bar -->
+
+    <!-- Body Content -->
+    <section class="section">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </section>
+    <!-- Body Content -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>My Food</strong> by <a href="http://www.about.me/ramon.silva">Ramon Silva</a>
+        </p>
+        <p>
+          <strong>Bulma CSS</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+
+        <p>
+          <strong>Mint Theme</strong> by <a href="https://jgog.in/">Jenil Gogari</a>.
+          Based on <a href="https://bulma.io/">Bulma</a>. Icons from <a href="https://fontawesome.com/">Font Awesome</a>.
+          Web Fonts by <a href="https://fonts.google.com/">Google</a>.
+          This source code is licensed <a href="https://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
+    <!-- Footer -->
   </body>
 </html>

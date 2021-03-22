@@ -1,0 +1,32 @@
+<% if notice %>
+  <div class="notification is-success is-light">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.slug %></td>
+        <td><%= link_to 'Editar', edit_category_path(category), class: 'button is-link' %></td>
+        <td><%= link_to 'Excluir', category, method: :delete, class: 'button is-danger', data: { confirm: 'Tem certeza que quer excluir?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Categoria', new_category_path, class: 'button is-link' %>

@@ -1,0 +1,52 @@
+<%= form_with(model: meal) do |form| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "error") %> impediram esse prato de ser salvo:</h2>
+
+      <ul>
+        <% meal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :name %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: 'label' %>
+    <div class="control">
+    <%= form.text_field :description %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, class: 'label' %>
+    <div class="control">
+      <%= form.number_field :price, step:0.01 %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id, class: 'label' %>
+    <div class="control">
+      <%= form.select :category_id, @categories.collect { |category| [category.name, category.id] }, class: 'select' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_id, class: 'label' %>
+    <div class="control">
+      <%= form.select :restaurant_id, @restaurants.collect { |restaurant| [restaurant.name, restaurant.id] }, class: 'select' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Salvar", class: 'button is-primary' %>
+  </div>
+<% end %>
