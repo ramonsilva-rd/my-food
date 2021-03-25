@@ -31,6 +31,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # A modern CSS framework based on Flexbox.
 gem "bulma-rails", "~> 0.9.1"
 
+# Gems to Authentication and Authorization
+gem 'devise'
+gem 'cancancan', '~> 1.10'
+gem 'rolify'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

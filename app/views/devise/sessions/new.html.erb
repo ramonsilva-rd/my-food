@@ -1,0 +1,33 @@
+<section class="is-medium is-primary is-bold">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="container">
+        <div class="columns is-centered">
+          <article class="card is-rounded">
+            <div class="card-content">
+                <h2 class='title is-2'>Entrar</h2>
+              <p class="control has-icon">
+                <%= f.label :email, class: 'label' %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'control' %>
+                <i class="fa fa-envelope"></i>
+              </p>
+              <p class="control has-icon">
+                <%= f.label :password, class: 'label' %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: 'control' %>
+                <i class="fa fa-lock"></i>
+              </p>
+              <p class="control">
+                <%= f.check_box :remember_me, class: 'control' %>
+                <%= f.label :remember_me, class: 'label' %>
+              </p>
+              <p class="control">
+                <%= f.submit "Entrar", class: 'button is-primary' %>
+                <i class="fa fa-user"></i>
+              </p>
+              <p><%= render "devise/shared/links" %></p>
+            </div>
+          </article>
+        </div>
+      </div>
+  <% end %>
+</section>
+

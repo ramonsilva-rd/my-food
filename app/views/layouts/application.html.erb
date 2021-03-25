@@ -30,14 +30,15 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
+            <% if !user_signed_in? %>
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>Cadastrar</strong>
-              </a>
-              <a class="button is-light">
-                Entrar
-              </a>
+              <%= link_to "Cadastre-se", new_user_registration_path, class: 'button is-primary' %>
+              <%= link_to "Entrar", new_user_session_path, class: "button is-light" %>
             </div>
+            <% else %>
+              <div>Olá, <%=current_user.email%></div>
+              <%= link_to "Sair", destroy_user_session_path, class: "button is-text" %>
+            <% end %>
           </div>
         </div>
       </div>

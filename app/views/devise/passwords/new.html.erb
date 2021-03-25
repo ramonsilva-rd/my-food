@@ -1,0 +1,24 @@
+
+<section class="is-medium is-primary is-bold">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="container">
+      <div class="columns is-centered">
+        <article class="card is-rounded">
+          <div class="card-content">
+            <h2 class='title is-3'>Esqueceu sua senha?</h2>
+            <p class="control has-icon">
+              <%= f.label :email, class: 'label' %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'control' %>
+              <i class="fa fa-envelope"></i>
+            </p>
+            <p class="actions">
+              <%= f.submit "Redefinir senha", class: 'button is-link' %>
+            </p>
+            <p><%= render "devise/shared/links" %></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  <% end %>
+</section>
