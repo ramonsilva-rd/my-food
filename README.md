@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto Rails para a ptratica de TDD
 
-Things you may want to cover:
+### Setup da Aplicação
 
-* Ruby version
+rode `bundle install`
+depois rode `rake db:create && rake db:migrate && rake db:seed`
 
-* System dependencies
+### Rodando a aplicação
 
-* Configuration
+rode `rails s -b 0.0.0.0 -p 3001`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Acesse http://localhost:3001

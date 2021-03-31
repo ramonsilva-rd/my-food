@@ -1,0 +1,29 @@
+<div class="column is-one-quarter">
+  <div class="columns">
+
+    <div class="column is-one-third">
+      <figure class="image is-96x96">
+        <img src="https://bulma.io/images/placeholders/96x96.png">
+      </figure>
+    </div>
+
+    <div class="column is-two-third">
+      <p class="title is-4 mb-1"><%= meal.name %></p>
+      <p class="mb-1"><%= meal.description %></p>
+
+      <div class="columns">
+        <div class="column">
+          <strong class="is-capitalized"><%= meal.category.name %></strong>
+        </div>
+        <div class="column has-text-right">
+        <button class="button is-small" onclick="add_to_cart(this)">
+          <span class="icon is-small">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+          <span>$ <%= meal.price %></span>
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

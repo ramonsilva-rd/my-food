@@ -1,1 +1,23 @@
-<h1 class="title is-1">Welcome !!!</h1>
+<div class="columns is-multiline">
+  <% @items.each_with_index do |meal, index| %>
+    <%= render partial: 'show_item', locals: { meal: meal } %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  function add_to_cart(sender) {
+    const headers = { method: 'PUT', mode: 'cors', cache: 'default' };
+    const item_id = sender.datatset('item-id');
+
+    sender.classList.add('is-loading');
+
+    fetch(`shopping_cart/${item_id}`, headers)
+    .then(function(response) {
+      sender.classList.remove('is-loading');
+
+      if(response.status == 200){
+        alert('Adicionado ao carrinho');
+      }
+    });
+  }
+</script>
